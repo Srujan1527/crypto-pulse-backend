@@ -1,0 +1,21 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
+export const ENV = {
+  CRYPTO_BASE_URL: process.env.CRYPTO_BASE_URL,
+  CRYPTO_API_KEY: process.env.CRYPTO_API_KEY,
+  CRYPTO_HEADER: process.env.CRYPTO_HEADER,
+};
+
+export const API_OPTIONS = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    [ENV.CRYPTO_HEADER]: ENV.CRYPTO_API_KEY,
+  },
+};
+
+export const API_ROUTES = {
+  categoriesApi: `${ENV.CRYPTO_BASE_URL}/coins/markets?vs_currency=usd`,
+};
