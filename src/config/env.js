@@ -20,4 +20,5 @@ export const API_ROUTES = {
   getCoins: `${ENV.CRYPTO_BASE_URL}/coins/markets`,
   trendingMarketCoinsApi: `${ENV.CRYPTO_BASE_URL}/search/trending?vs_currency=usd`,
   getCategoriesApi: `${ENV.CRYPTO_BASE_URL}/coins/categories`,
+  getCoinDetails: `${ENV.CRYPTO_BASE_URL}/coins`,
 };

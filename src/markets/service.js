@@ -71,3 +71,21 @@ export const getCategoryCoinsService = async (req, res) => {
     throw error;
   }
 };
+
+export const coinDetailsService = async (id) => {
+  try {
+    const response = await fetch(
+      `${API_ROUTES.getCoinDetails}/${id}`,
+      API_OPTIONS
+    );
+    if (!response.ok) {
+      throw new Error("Unable to fetch the data", response);
+    }
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};

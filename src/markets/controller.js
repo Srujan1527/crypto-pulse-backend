@@ -3,6 +3,7 @@ import {
   getCoinsService,
   getTrendingMarketCoinsService,
   getCategoryCoinsService,
+  coinDetailsService,
 } from "./service.js";
 
 export const getCoins = async (req, res) => {
@@ -39,6 +40,17 @@ export const getCategories = async (req, res) => {
 export const getCategoryCoins = async (req, res) => {
   try {
     const data = await getCategoryCoinsService(req.query);
+    return res.status(200).json(data);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
+
+export const getCoinDetails = async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log("id: ", id);
+    const data = await coinDetailsService(id);
     return res.status(200).json(data);
   } catch (error) {
     return res.status(500).json({ error: error.message });
