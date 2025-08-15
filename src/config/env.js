@@ -30,3 +30,7 @@ export const DATABASE = {
   PASSWORD: process.env.PG_PASSWORD,
   PORT: process.env.PG_PORT,
 };
+
+export const JWT_SECRET_KEY = {
+  SECRET_KEY: process.env.JWT_SECRET_KEY,
+};

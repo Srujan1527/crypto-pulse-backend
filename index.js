@@ -4,6 +4,7 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import marketsRouter from "./src/markets/router.js";
+import authRouter from "./src/auth/router.js";
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.use(cors());
 app.use(helmet());
 
 app.use("/", marketsRouter);
-
+app.use("/auth", authRouter);
 const PORT = process.env.port;
 
 const server = app.listen(PORT, () => {
