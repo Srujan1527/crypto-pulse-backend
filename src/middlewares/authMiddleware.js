@@ -1,8 +1,7 @@
-import React from "react";
 import jwt from "jsonwebtoken";
 import { JWT_SECRET_KEY } from "../config/env";
 
-const authMiddleware = (req, res, next) => {
+export const authMiddleware = (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -18,5 +17,3 @@ const authMiddleware = (req, res, next) => {
     return res.status(401).json({ message: "Invalid token" });
   }
 };
-
-export default authMiddleware;
